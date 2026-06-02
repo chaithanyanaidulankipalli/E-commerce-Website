@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroGlow | Premium E-Commerce</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Floating Nav Header -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="#/" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+        AeroGlow
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links">
+        <a href="#/" class="nav-link active" id="nav-shop">Shop</a>
+        <a href="#/orders" class="nav-link hidden" id="nav-orders">My Orders</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="search-container" id="nav-search-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="global-search" placeholder="Search premium items...">
+        <button id="clear-search" class="clear-search hidden"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+          <i class="fa-regular fa-moon theme-icon-dark"></i>
+          <i class="fa-regular fa-sun theme-icon-light hidden"></i>
+        </button>
+
+        <!-- Cart Button -->
+        <button id="cart-btn" class="icon-btn cart-badge-container" aria-label="Open Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+
+        <!-- User Profile Dropdown / Trigger -->
+        <div class="user-menu-container">
+          <button id="user-menu-btn" class="icon-btn" aria-label="User Account">
+            <i class="fa-regular fa-user"></i>
+          </button>
+          <div class="dropdown-menu" id="user-dropdown">
+            <div class="dropdown-header hidden" id="user-info-display">
+              <p class="user-name" id="display-username">John Doe</p>
+              <p class="user-email" id="display-useremail">john@example.com</p>
+            </div>
+            <div class="dropdown-divider hidden" id="user-info-divider"></div>
+            <a href="#/orders" class="dropdown-item hidden" id="dropdown-orders"><i class="fa-solid fa-box-open"></i> My Orders</a>
+            <a href="#/login" class="dropdown-item" id="dropdown-login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
+            <a href="#/register" class="dropdown-item" id="dropdown-register"><i class="fa-solid fa-user-plus"></i> Register</a>
+            <button class="dropdown-item hidden text-danger w-full" id="dropdown-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Banner (Toast) -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Main View Area (Dynamic Routing) -->
+  <main id="app-view" class="main-content"></main>
+
+  <!-- Side Cart Drawer Overlay & Drawer -->
+  <div id="cart-overlay" class="drawer-overlay"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="drawer-header">
+      <h3>Your Bag</h3>
+      <button id="close-cart" class="close-btn" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="drawer-body" id="cart-items-container">
+      <!-- Dynamic cart items here -->
+      <div class="empty-cart-state">
+        <i class="fa-solid fa-bag-shopping empty-cart-icon"></i>
+        <p>Your bag is empty.</p>
+        <a href="#/" class="btn btn-primary" id="drawer-shop-btn">Shop Products</a>
+      </div>
+    </div>
+
+    <div class="drawer-footer" id="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <div class="cart-summary-row text-muted text-sm">
+        <span>Shipping</span>
+        <span id="cart-shipping">Calculated at checkout</span>
+      </div>
+      <div class="cart-divider"></div>
+      <div class="cart-summary-row total-row">
+        <span>Total</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <div class="drawer-actions">
+        <a href="#/cart" class="btn btn-secondary w-full text-center" id="view-bag-btn">View Bag</a>
+        <a href="#/checkout" class="btn btn-primary w-full text-center" id="checkout-btn">Checkout</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#/" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+          AeroGlow
+        </a>
+        <p>Providing premium technology, smart living devices, and high-fidelity acoustics for the modern workspace.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Shop Categories</h4>
+        <ul>
+          <li><a href="#/?category=Audio">Audio Equipment</a></li>
+          <li><a href="#/?category=Electronics">Electronics</a></li>
+          <li><a href="#/?category=Home%20%26%20Living">Smart Home & Living</a></li>
+          <li><a href="#/?category=Lifestyle">Lifestyle Essentials</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Support & Services</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Shipping Rates</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn btn-primary">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AeroGlow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script Modules -->
+  <script src="/js/api.js"></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
